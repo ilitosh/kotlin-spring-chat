@@ -23,7 +23,7 @@ class FakeMessageService : MessageService {
 
     override fun latest(): List<MessageVM> {
         val count = Random.nextInt(1, 15)
-        return (0..count).map {
+        return (1..count).map {
             val user = users.values.random()
             val userQuote = usersQuotes.getValue(user.name).invoke()
 

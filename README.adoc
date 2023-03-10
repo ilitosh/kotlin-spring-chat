@@ -213,7 +213,7 @@ class FakeMessageService : MessageService {
 
     override fun latest(): List<MessageVM> {
         val count = Random.nextInt(1, 15)
-        return (0..count).map {
+        return (1..count).map {
             val user = users.values.random()
             val userQuote = usersQuotes.getValue(user.name).invoke()
 
@@ -244,7 +244,7 @@ The main task of the `FakeMessageService` class is to generate a random number o
 [source,kotlin]
 -----
 val count = Random.nextInt(1, 15)
-return (0..count).map {
+return (1..count).map {
     val user = users.values.random()
     val userQuote = usersQuotes.getValue(user.name).invoke()
 
@@ -252,7 +252,7 @@ return (0..count).map {
   }.toList()
 -----
 
-In Kotlin, to generate a https://kotlinlang.org/docs/reference/ranges.html[range] of integers all we need to do is say `(0..count)`. We then apply a `map()` function to transform each number into a message.
+In Kotlin, to generate a https://kotlinlang.org/docs/reference/ranges.html[range] of integers all we need to do is say `(1..count)`. We then apply a `map()` function to transform each number into a message.
 
 Notably, the selection of a random element from any collection is also quite simple. Kotlin provides an extension method for collections, which is called `random()`. We use this extension method to select and return a user from the list: `users.values.random()`
 
